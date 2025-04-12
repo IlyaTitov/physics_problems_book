@@ -11,10 +11,10 @@ def registration(request):
     if request.method == 'POST':
         form = User_Form(request.POST)
         name = request.POST.get('user_name')
-        password = request.POST.get('password')
+
 
         if form.is_valid():
-            user = user_db.add_users(name, password)
+            user = user_db.add_users(name)
 
             return render(request,'start.html',{'name': user.user_name} )
 
