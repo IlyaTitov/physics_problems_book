@@ -1,0 +1,35 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Добавить задачу в раздел "Термодинамика"
+{% endblock %}
+
+{% block page-lead %}
+Заполните данную форму
+{% endblock %}
+
+{% block button-href%}
+'problem_list'
+{% endblock %}
+
+{% block button-title%}
+Список задач
+{% endblock %}
+
+{% block content %}
+<div class = 'features'>
+    <form method="post">
+        {% csrf_token %}
+
+        {{form.condition}}<br>
+        {{form.answer}}<br>
+
+        <div class="col-lg-6 col-xxl-4 my-5 mx-auto">
+                  <div class="d-grid gap-2">
+                    <button class="btn btn-outline-secondary" type = 'submit'>Отправить</button>
+                  </div>
+        </div>
+    </form>
+
+</div>
+{% endblock %}

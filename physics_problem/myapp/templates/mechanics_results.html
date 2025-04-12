@@ -1,0 +1,42 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Результаты: решено правильно {{count_of_right_answer}} из {{count_of_answer}} ({{percent}}%)
+{% endblock %}
+
+{% block page-lead %}
+
+{% endblock %}
+
+{% block button-href%}
+'home'
+{% endblock %}
+
+{% block button-title%}
+Вернуться на главную страницу
+{% endblock %}
+
+{% block content %}
+<div class="container">
+        <h1 class="mt-5"> </h1>
+        <p class="lead">
+
+        {% csrf_token %}
+            {% for result in resuls %}
+            <div class="container my-5">
+              <div class="p-5 text-center bg-body-tertiary rounded-3">
+                <p class="lead">
+                    {{result.number_of_problems}}.{{result.condition}} <br>
+                    <strong>Ответ: {{result.user_answer}}</strong> ( <strong>Правильный ответ: {{result.answer}}</strong>)
+                </p>
+              </div>
+            </div>
+            {% endfor %}
+
+        </p>
+
+ </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Статистика
+{% endblock %}
+
+{% block page-lead %}
+Здесь представлен анализ ваших ответов
+{% endblock %}
+
+{% block button-href%}
+'home'
+{% endblock %}
+
+{% block button-title%}
+Вернуться обратно
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container px-4 py-5" id="stats">
+    <div>
+        <h3 class="py-2">Количество решенных задач</h3>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <h4>Всего решено</h4>
+            <p class="text-muted">{{count_of_answer}}</p>
+        </div>
+        <div class="col-md-4">
+            <h4>Правильно решено </h4>
+            <p class="text-muted">{{count_of_success}} ({{percent_rigth}} %)</p>
+        </div>
+        <div class="col-md-4">
+            <h4>Неправильно решено</h4>
+            <p class="text-muted">{{count_of_mistakes}} ({{percent_wrong}} %)</p>
+        </div>
+    </div>
+</div>
+
+<div class="container px-4 py-5" id="stats">
+    <div>
+        <h3 class="py-2">Анализ по темам</h3>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <h4>Термодинамика</h4>
+            <p class="text-muted"> {{count_of_termo_right}} из {{count_of_termo}} ({{percent_thermodynamica}} %)</p>
+        </div>
+
+        <div class="col-md-4">
+            <h4>Механика</h4>
+            <p class="text-muted">{{count_of_mechanics_right}} из {{count_of_mechanics}} ({{percent_mechanics}} %)</p>
+        </div>
+
+        <div class="col-md-4">
+            <h4> Стоит повторить </h4>
+            {% if percent_mechanics == 0 and percent_thermodynamica == 0 %}
+                <p class="text-muted"> - </p>
+            {% elif percent_mechanics > percent_thermodynamica  %}
+
+                <p class="text-muted"> Термодинамика </p>
+            {% else %}
+                <p class="text-muted"> Механика </p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+</div>
+
+<div class="col-lg-6 col-xxl-4 my-5 mx-auto">
+  <div class="d-grid gap-2">
+    <a class="btn btn-outline-secondary" type = 'submit' href='delete_answer' >Сбросить результат</a>
+  </div>
+</div>
+
+{% endblock %}

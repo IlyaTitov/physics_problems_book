@@ -1,0 +1,36 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Физика в задачах
+{% endblock %}
+
+{% block page-lead %}
+Здравствуйте, {{name}}! Данный проект посвящен созданию онлайн задачника по физике для подготовки к ЕГЭ
+{% endblock %}
+
+{% block button-href%}
+'problem_list'
+{% endblock %}
+
+{% block button-title%}
+Список задач
+{% endblock %}
+
+{% block content %}
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+          <h2>Решить задачи</h2>
+          <p>Попробуй свои силы в решение типовых задач по разным разделам физики!</p>
+          <a href = 'start_solution' class="btn btn-outline-light" type="button">Попробовать!</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+          <h2>Статистика</h2>
+          <p>Проанализируйте свои ответы, чтобы улучшить результат</p>
+          <a href=stat  class="btn btn-outline-secondary" type="button">Анализировать!</a>
+        </div>
+      </div>
+    </div>
+{% endblock %}

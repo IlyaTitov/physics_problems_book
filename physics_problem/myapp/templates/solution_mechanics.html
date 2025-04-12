@@ -1,0 +1,49 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Задачи по механики
+{% endblock %}
+
+{% block page-lead %}
+Введите ваш ответ и нажмите на кнопку отправить
+{% endblock %}
+
+{% block button-href%}
+'start_solution'
+{% endblock %}
+
+{% block button-title%}
+Вернуться обратно
+{% endblock %}
+
+{% block content %}
+
+  <div class="container">
+        <h1 class="mt-5"> </h1>
+            <p class="lead">
+        <form method="post">
+            {% csrf_token %}
+                {% for problem in problems %}
+                <div class="container my-5">
+                  <div class="p-5 text-center bg-body-tertiary rounded-3">
+                    <p class="lead">
+                        {{problem.number}}.{{problem.condition}} <br>
+                        <input type = 'text' placeholder = 'Ваш ответ' class = 'form-control' name = 'answer' id = 'answer'>
+                    </p>
+                  </div>
+                </div>
+                {% endfor %}
+
+            </p>
+
+        <div class="col-lg-6 col-xxl-4 my-5 mx-auto">
+          <div class="d-grid gap-2">
+            <button class="btn btn-outline-secondary" type = 'submit' formaction='/solution_mechanics' >Отправить</button>
+          </div>
+        </div>
+        </form>
+ </div>
+
+
+
+{% endblock %}

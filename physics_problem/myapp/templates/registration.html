@@ -1,0 +1,28 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Вход в проект "Физика в задачах"
+{% endblock %}
+
+{% block page-lead %}
+Введите ваши даннные
+{% endblock %}
+
+
+
+
+{% block content %}
+<div class = 'features'>
+    <form method="post">
+        {% csrf_token %}
+        {{form.user_name}}<br>
+        {{form.password}}<br>
+        <div class="col-lg-6 col-xxl-4 my-5 mx-auto">
+          <div class="d-grid gap-2">
+            <button class="btn btn-outline-secondary" type = 'submit'>Войти</button>
+          </div>
+        </div>
+    </form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base_page.html" %}
+
+{% block page-title %}
+Решение задач
+{% endblock %}
+
+{% block page-lead %}
+Здесь вы можете решить задачи как по разделам
+{% endblock %}
+
+{% block button-href%}
+'home'
+{% endblock %}
+
+{% block button-title%}
+Вернуться обратно
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+          <h2>Механика</h2>
+          <p>Попробуйте решить задачи по разделу Механика. Данный раздел часто встречается на ЕГЭ.</p>
+          <a href = 'solution_mechanics' class="btn btn-outline-light" type="button">Попробовать!</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+          <h2>Термодинамика</h2>
+          <p>Попробуйте решить задачи по разделу Термодинамика. Знания по данной теме пригодятся Вам для решения не только теста, но и задач с развернутым ответом. </p>
+          <a href='solution_thermodynamics'  class="btn btn-outline-light" type="button">Попробовать!</a>
+        </div>
+      </div>
+    </div>
+
+
+
+
+{% endblock %}
