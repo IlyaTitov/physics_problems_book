@@ -4,7 +4,7 @@ from .forms import Mechanics_Form, Solution_Form, Thermodynamics_Form, User_Form
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.cache import cache
 import random
-from  myapp import answer_db
+from myapp import answer_db
 from myapp import  user_db
 
 def registration(request):
@@ -36,12 +36,21 @@ def problem_list(request):
 def add_mechanics_problems(request):
     if request.method == 'POST':
         form = Mechanics_Form(request.POST)
+        condition = request.POST.get('condition')
         if form.is_valid():
-            form.save()
-            return HttpResponseRedirect("/problem_list")
+            if len(condition) > 10:
+                form.save()
+                return HttpResponseRedirect("/problem_list")
+            else:
+                return HttpResponseRedirect("/valid_add_mechanics")
+
+
     else:
         form = Mechanics_Form()
     return render(request, "add_mechanics.html", {'form': form})
+
+def valid_add_mechanics(request):
+    return render(request, "valid_add_mechanics.html")
 
 def add_therm_problems(request):
     if request.method == 'POST':

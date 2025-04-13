@@ -11,5 +11,6 @@ urlpatterns = [
     path('start_solution', views.start_solution),
     path('solution_mechanics', views.solution_mechanics),
     path('solution_thermodynamics',views.solution_thermodynamics),
-    path('delete_answer', views.delete_answer)
+    path('delete_answer', views.delete_answer),
+    path('valid_add_mechanics',views.valid_add_mechanics)
 ]
