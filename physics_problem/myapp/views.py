@@ -55,12 +55,20 @@ def valid_add_mechanics(request):
 def add_therm_problems(request):
     if request.method == 'POST':
         form = Thermodynamics_Form(request.POST)
+        condition = request.POST.get('condition')
         if form.is_valid():
-            form.save()
-            return HttpResponseRedirect("/problem_list")
+            if len(condition) > 10:
+                form.save()
+                return HttpResponseRedirect("/problem_list")
+            else:
+                return HttpResponseRedirect("/valid_add_therm")
+
     else:
         form = Thermodynamics_Form()
     return render(request, "add_thermodynamics.html", {'form': form})
+
+def valid_add_therm(request):
+    return render(request, "valid_add_therm.html")
 
 def start_solution(request):
     return render(request, 'start_solution.html')
