@@ -56,7 +56,7 @@
 
         <div class="col-md-4">
             <h4> Стоит повторить </h4>
-            {% if percent_mechanics == 0 and percent_thermodynamica == 0 %}
+            {% if count_of_termo == 0 or count_of_mechanics == 0 %}
                 <p class="text-muted"> - </p>
             {% elif percent_mechanics > percent_thermodynamica  %}
 
